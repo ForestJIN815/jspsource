@@ -15,28 +15,53 @@
     <div class="col-sm-10">
       <input type="text" class="form-control" id="title" name="title" >
     </div>
-  </div>
+  </div>  
   <div class="row mb-3">
-  <label for="writer" class="col-sm-2 col-form-label">Writer</label>
-  <div class="col-sm-10">
-  <input type="text" class="form-control" id="writer" name="writer" >
-   </div>
-  </div>
+    <label for="writer" class="col-sm-2 col-form-label">Writer</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="writer" name="writer" >
+    </div>
+  </div>  
   <div class="row mb-3">
-  <label for="price" class="col-sm-2 col-form-label">Price</label>
-  <div class="col-sm-10">
-  <input type="text" class="form-control" id="price" name="price" >
-   </div>
-  </div>
+    <label for="price" class="col-sm-2 col-form-label">Price</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="price" name="price" >
+    </div>
+  </div>  
   <div class="row mb-3">
     <label for="price" class="col-sm-2 col-form-label">Description</label>
     <div class="col-sm-10">
-    <textarea name="description" id="description" cols="3" class="form-control"></textarea>
+      <textarea name="description" id="description" cols="3" class="form-control"></textarea>
     </div>
-  </div>
+  </div>  
   <button type="submit" class="btn btn-secondary">추가</button>
-  <button type="button" class="btn btn-primary">목록</button>
-  
+  <button type="button" class="btn btn-primary">목록</button>  
 </form>
-<script src="/js/read.js"></script>
+<script src="/js/create.js"></script>
 <%@ include file="../include/footer.jsp"%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

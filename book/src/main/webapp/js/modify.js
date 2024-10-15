@@ -18,13 +18,13 @@ document.querySelector("body div:nth-child(3) form").addEventListener("submit",(
 	const regEx = /^[0-9]{3,10}$/;
 	
 	if(!regEx.test(price.value)){
-		alert("가격을 입력하세요")
-		//price.focus();
-		price.select(); // focus + 입격값 존재 시 블럭으로 잡아줌
+		alert("가격을 입력하세요");
+//		price.focus();
+		price.select();  // focus + 입력값 존재 시 블럭으로 잡아줌
 		return;
-		
 	}
 	
-	// 이상이 없는 form 전송
+	// 이상이 없는 경우 form 전송
 	e.target.submit();
+	
 });
