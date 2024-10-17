@@ -8,6 +8,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import dto.BookDTO;
 
 public class BookDAO {
@@ -16,21 +21,26 @@ public class BookDAO {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 
-	static {
-		// 드라이버 로드
+//	static {
+//		// 드라이버 로드
+//		try {
+//			Class.forName("oracle.jdbc.OracleDriver");
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
+//		}
+//	}
+
+	public Connection getConnection(){
+		Context initContext;
 		try {
-			Class.forName("oracle.jdbc.OracleDriver");
-		} catch (ClassNotFoundException e) {
+			initContext = new InitialContext();
+			Context envContext  = (Context)initContext.lookup("java:/comp/env");
+			DataSource ds = (DataSource)envContext.lookup("jdbc/oracle");
+			con = ds.getConnection();
+		} catch (Exception e) {			
 			e.printStackTrace();
 		}
-	}
-
-	public Connection getConnection() throws SQLException {
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String user = "c##java";
-		String password = "12345";
-
-		return DriverManager.getConnection(url, user, password);
+		return con;
 	}
 
 	public void close(Connection con, PreparedStatement pstmt, ResultSet rs) {
