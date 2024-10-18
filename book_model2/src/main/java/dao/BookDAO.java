@@ -106,16 +106,17 @@ public class BookDAO {
 		return dto;
 	}
 
-	public List<BookDTO> getList() {
+	public List<BookDTO> getList(String keyword) {
 		// 전체조회
 		List<BookDTO> list = new ArrayList<BookDTO>();
 
 		try {
 
 			con = getConnection();
-			String sql = "SELECT * FROM booktbl order by code desc";
+			String sql = "SELECT * FROM booktbl WHERE title LIKE ? ORDER BY CODE DESC";
 			pstmt = con.prepareStatement(sql);
 			// sql 구문 ? 해결
+			pstmt.setString(1, "%"+keyword+"%");
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {

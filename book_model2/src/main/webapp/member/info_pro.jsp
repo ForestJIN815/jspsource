@@ -3,8 +3,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-
-
 	ChangeDTO changeDto = new ChangeDTO();
 	changeDto.setUserid(request.getParameter("userid"));
 	changeDto.setCurrentPassword(request.getParameter("current_password"));

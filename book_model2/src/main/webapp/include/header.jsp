@@ -1,6 +1,7 @@
 <%@page import="dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,7 @@
     <div class="container d-flex flex-wrap">
       <ul class="nav me-auto">
         <li class="nav-item"><a href="/" class="nav-link link-body-emphasis px-2 active" aria-current="page">Home</a></li>
-        <li class="nav-item"><a href="/list.do" class="nav-link link-body-emphasis px-2">도서목록</a></li>
+        <li class="nav-item"><a href="/list.do?keyword=" class="nav-link link-body-emphasis px-2">도서목록</a></li>
         <li class="nav-item"><a href="/book/create.jsp" class="nav-link link-body-emphasis px-2">도서입력</a></li>
         <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">FAQs</a></li>
         <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2">About</a></li>
@@ -44,10 +45,29 @@
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
         <span class="fs-4">Book</span>
       </a>
-      <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
-        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search" action="/list.do">
+        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" name="keyword">
+        <button class="btn btn-success">검색</button>
       </form>
     </div>
   </header>
 <div class="container">
 	<!-- main content -->
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

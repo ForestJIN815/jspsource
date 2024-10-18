@@ -11,7 +11,7 @@ import service.BookService;
 import service.BookServiceImpl;
 
 @AllArgsConstructor
-public class BookReadAction implements Action {
+public class BookDeleteAction implements Action {
 
 	private String path;
 
@@ -22,14 +22,18 @@ public class BookReadAction implements Action {
 		int code =  Integer.parseInt(request.getParameter("code"));
 		String keyword = request.getParameter("keyword");
 		
+		
 		// 2. service 호출
 		BookService service = new BookServiceImpl();		
-		BookDTO dto = service.read(code);
+		boolean deleteFlag = service.delete(code);
 		
-		request.setAttribute("dto", dto);
-		request.setAttribute("keyword", keyword);
+		if(!deleteFlag) {
+			path = "/modify.do?code="+code;
+		}else {
+			path += "?keyword="+keyword;
+		}
 		
-		return new ActionForward(path, false);
+		return new ActionForward(path, true);
 	}
 
 }
