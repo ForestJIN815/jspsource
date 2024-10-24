@@ -16,8 +16,8 @@ public interface BoardService {
 	
 	boolean hitUpdate(int bno);
 	
-	// 댓글
+	//댓글
 	boolean reply(BoardDTO replyDto);	
 	
-	int getTotalRows();
+	int getTotalRows(SearchDTO searchDTO);
 }

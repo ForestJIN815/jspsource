@@ -12,11 +12,11 @@ public class PageDTO {
 	private boolean next;
 	
 	private SearchDTO searchDTO;
-	private int total; // 전체 게시물 수
+	private int total;  // 전체 게시물 수
 	
 	public PageDTO(SearchDTO searchDTO, int total) {
 		this.searchDTO = searchDTO;
-		this.total = total; 
+		this.total = total;
 		
 		endPage = (int)(Math.ceil(searchDTO.getPage() / 10.0)) * 10;
 		startPage = endPage - 9;
@@ -26,7 +26,7 @@ public class PageDTO {
 		if(realEnd < this.endPage) {
 			this.endPage = realEnd;
 		}
-	
+		
 		this.prev = this.startPage > 1;
 		this.next = this.endPage < realEnd;
 	}

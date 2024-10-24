@@ -31,8 +31,9 @@ if (replyBtn) {
 	});
 }
 
-// modify.jsp 수정,삭제,목록 버튼 이벤트
 
+
+// modify.jsp 수정,삭제,목록 버튼 이벤트
 
 
 // 삭제 클릭 시

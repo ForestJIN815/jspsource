@@ -3,12 +3,6 @@
 <%@ include file="../include/header.jsp"%>
 <div class="container-fluid">
 	<h1 class="h3 mb-4 text-gray-800">Reply</h1>
-	<%--
-	   enctype="application/x-www-form-urlencoded"(기본)
-		
-	   첨부파일 
-	   enctype="multipart/form-data"		
-	 --%>
 	<form action="/reply.do" method="post" id="reply">		
 		<div class="form-group">
 			<label for="title">제목</label> 
@@ -16,16 +10,21 @@
 		</div>
 		<div class="form-group">
 			<label for="content">내용</label> 
-			<textarea rows="10" class="form-control" id="content" name="content" required="required"></textarea>
+			<textarea rows="10" class="form-control" id="content" name="content" required="required">${dto.content}</textarea>
 		</div>		
 		<div class="form-group">
 			<label for="name">작성자</label> 
 			<input type="text" class="form-control" id="name" name="name" required="required">			
-		</div>
+		</div>		
 		<div class="form-group">
 			<label for="password">비밀번호</label> 
 			<input type="password" class="form-control" id="password" name="password" required="required">			
-		</div>
+		</div>		
+		<!-- 페이지 나누기 정보 -->
+		<input type="hidden" name="page" value="${searchDTO.page}"/>
+	    <input type="hidden" name="amount" value="${searchDTO.amount}"/>
+	    <input type="hidden" name="criteria" value="${searchDTO.criteria}"/>
+	    <input type="hidden" name="keyword" value="${searchDTO.keyword}"/>
 		<!-- 부모글 정보 -->
 		<input type="hidden" name="re_ref" value="${dto.reRef}" />
 		<input type="hidden" name="re_lev" value="${dto.reLev}" />
@@ -35,9 +34,29 @@
 		<button type="button" class="btn btn-success">목록</button>
 	</form>
 </div>
-<%-- 페지이 나누기 --%>
+<%-- 페이지 나누기  --%>
 <form action="/list.do" method="get" id="actionForm">
-
+	<input type="hidden" name="page" value="${searchDTO.page}"/>
+	<input type="hidden" name="amount" value="${searchDTO.amount}"/>
+	<input type="hidden" name="criteria" value="${searchDTO.criteria}"/>
+	<input type="hidden" name="keyword" value="${searchDTO.keyword}"/>
 </form>
 <script src="/js/custom/reply.js"></script>
 <%@ include file="../include/footer.jsp"%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

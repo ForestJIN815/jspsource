@@ -41,16 +41,27 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public boolean reply(BoardDTO replyDto) {
-		return dao.replynsert(replyDto)==1?true:false;
+	public boolean reply(BoardDTO replyDto) {		
+		return dao.replyInsert(replyDto)==1?true:false;
 	}
-	
-	
+
 	@Override
-	public int getTotalRows() {
-		return dao.getTotalRows();
+	public int getTotalRows(SearchDTO searchDTO) {		
+		return dao.getTotalRows(searchDTO);
 	}
-	
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 

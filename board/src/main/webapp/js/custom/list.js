@@ -9,28 +9,28 @@ const actionForm = document.querySelector("#actionForm");
 //allA.forEach("a",()=>{
 //	a.addEventListener("click",(e)=>{
 //		e.preventDefault();
-		
-		//href 값 가져오기
+
+//href 값 가져오기
 //	})
 // })
 
 // 부모에게 전달되는 이벤트 버블링
-document.querySelector("tbody").addEventListener("click",(e)=>{
+document.querySelector("tbody").addEventListener("click", (e) => {
 	// a 태그 기능 중지
 	e.preventDefault();
-	
+
 	// 이벤트 대상
 	console.log(e.target)
 	console.log(e.target.href)  // http://localhost:8090/6
 	console.log(e.target.getAttribute("href")); // 6
-	
+
 	const bno = e.target.getAttribute("href");
-	
+
 	actionForm.querySelector("[name='bno']").value = bno;
-	
+
 	// 삽입 후 확인
-	console.log(actionForm.innerHTML);	
-	
+	console.log(actionForm.innerHTML);
+
 	// actionForm submit
 	// action : /read.do 변경
 	actionForm.action = "/cntupdate.do";
@@ -44,27 +44,27 @@ document.querySelector("tbody").addEventListener("click",(e)=>{
 const searchForm = document.querySelector("#searchForm");
 searchForm.addEventListener("submit", (e) => {
 	e.preventDefault();
-	
+
 	const criteria = searchForm.querySelector("[name='criteria']");
 	const keyword = searchForm.querySelector("[name='keyword']");
-	
-	if (criteria.value === "n") {
+
+	if (criteria.value === "n") {		
 		alert("검색 조건을 선택하세요");
 		return;
 	} else if(keyword.value === ""){
 		alert("검색어를 입력하세요");
 		keyword.focus();
-	    return;
-	}
+		return;
+	}	
 	searchForm.submit();
 })
 
 // 하단의 페이지 나누기 기능
 // 1 2 3 숫자 누를 때 actionForm submit 
-// href 값 가져와서 actionForm 의 page 요소값으로 대체
+// href 값 가져와서 actionForm 의 page요소값으로 대체
 
 const pagination = document.querySelector(".pagination");
-console.log(pagination);
+
 pagination.addEventListener("click",(e)=>{
 	e.preventDefault();
 	
@@ -73,6 +73,28 @@ pagination.addEventListener("click",(e)=>{
 	actionForm.action = "/list.do";
 	actionForm.submit();
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
